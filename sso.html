@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    登录页面
+    <form action="/loginSuccess" method="get">
+      <label for="username">
+        账号：<input name="username" id="username" type="text" />
+      </label>
+      <label for="password"
+        >密码：<input name="password" id="password" type="password"
+      /></label>
+      <!-- 隐藏appId 作为参数传递 登录的时候 -->
+      <label for="appId"
+        ><input name="appId" value="" id="appId" type="hidden"
+      /></label>
+      <button type="submit" id="button">登录</button>
+    </form>
+    <script>
+      // 获取 appId 的参数，提交表单时候要传递
+      const appId = location.search.split("=")[1];
+      document.getElementById("appId").value = appId;
+    </script>
+  </body>
+</html>
